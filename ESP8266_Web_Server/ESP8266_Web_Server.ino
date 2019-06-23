@@ -16,6 +16,8 @@ Servo myservo;
 const char* ssid     = WIFI_SSID;
 const char* password = WIFI_PASSWD;
 
+byte mac[6];
+
 // Set web server port number to 80
 WiFiServer server(80);
 
@@ -57,8 +59,18 @@ void setup() {
   // Print local IP address and start web server
   Serial.println("");
   Serial.println("WiFi connected.");
-  Serial.println("IP address: ");
+  Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
+
+  WiFi.macAddress(mac);
+  Serial.print("MAC: ");
+  for (int i = 0; i <= 5; i++) {
+    Serial.print(mac[i],HEX);
+    if (i<5) {
+      Serial.print(":");
+    }
+  }
+
   server.begin();
 
   myservo.write(45);
