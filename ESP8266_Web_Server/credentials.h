@@ -1,0 +1,41 @@
+#ifndef CREDENTIALS_H
+#define CREDENTIALS_H
+
+// Replace with your actual SSID and password:
+#define WIFI_SSID "name"
+#define WIFI_PASSWD "password"
+
+#endif
+
+//on the router I set for board with MAC XX:XX:XX:XX:XX:XX
+//Advanced settings - DHCP - Add reserved rule , permanent ip address 192.168.0.x
+
+//guide how to not publish passwords on git
+//https://arduino.stackexchange.com/questions/40411/hiding-wlan-password-when-pushing-to-github
+/*
+I created a placeholder credentials.h file with the following info (Edger's answer).
+
+#ifndef CREDENTIALS_H
+#define CREDENTIALS_H
+
+// Replace with your actual SSID and password:
+#define WIFI_SSID "Your SSID here"
+#define WIFI_PASSWD "WLAN AP password here"
+
+#endif
+
+I further added the reference to this new file in the .ino file.
+
+#include "credentials.h"
+
+const char ssid[] = WIFI_SSID;
+const char pass[] = WIFI_PASSWD;
+
+Now the twist.. I excluded the file from being checked for changes using the --assume-unchanged command.
+
+    git update-index --assume-unchanged credentials.h
+
+You can then modify the credentials.h file and wont be prompted to add it to github.
+
+Note, to re-check the file use --no-assume-unchanged. 
+ */
